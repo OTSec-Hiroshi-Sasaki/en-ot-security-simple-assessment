@@ -1,0 +1,231 @@
+[
+  {
+    "questions": [
+      {
+        "category_id": 1,
+        "category_name": "organization",
+        "category_name_locale": "People",
+        "question": [
+          {
+            "number": 1,
+            "priority": 4,
+            "text": "The decision maker (factory manager, company manager, etc.) or management is aware of the need for security of factory systems, is in a position to obtain cooperation in terms of sufficient budget and personnel allocation."
+          },
+          {
+            "number": 2,
+            "priority": 2,
+            "text": "Cooperation and linkage arrangements are in place between the information system division, productionrelated divisions, and other relevant divisions and departments to ensure the security of factory systems."
+          },
+          {
+            "number": 3,
+            "priority": 4,
+            "text": "The factory system security review organization and the person in charge are prepared, and the responsibilities and business contents are clarified."
+          },
+          {
+            "number": 4,
+            "priority": 3,
+            "text": "A person in charge in the event of a factory security accident is prepared, and responsibilities and business contents are clarified."
+          },
+          {
+            "number": 5,
+            "priority": 1,
+            "text": "Provide on-site training such as receiving regular information and holding study sessions on trends in threats related to factory security."
+          }
+        ]
+      },
+      {
+        "category_id": 2,
+        "category_name": "operation",
+        "category_name_locale": "Process",
+        "question": [
+          {
+            "number": 1,
+            "priority": 4,
+            "text": "The risks to the business in the event of a system breach or outage are considered."
+          },
+          {
+            "number": 2,
+            "priority": 3,
+            "text": "Dedicated security policies in the factory system are specified and recognized."
+          },
+          {
+            "number": 3,
+            "priority": 3,
+            "text": "E-mail and Internet access from the factory system is prohibited by the policy."
+          },
+          {
+            "number": 4,
+            "priority": 2,
+            "text": "Responsible person's response to the occurrence of security anomalies in the factory system is clarified."
+          },
+          {
+            "number": 5,
+            "priority": 2,
+            "text": "On-site workers understand and are trained on how to respond to security anomalies in factory systems."
+          },
+          {
+            "number": 6,
+            "priority": 4,
+            "text": "A ledger of devices (servers, client terminals, network equipment, facilities, etc.) connected to the factory network is created, including the use of information asset detection tools, and a system configuration diagram is created."
+          },
+          {
+            "number": 7,
+            "priority": 3,
+            "text": "If a wireless LAN is installed in the factory, a system is in place to create a ledger of devices authorized to connect to the network and reject unauthorized devices."
+          },
+          {
+            "number": 8,
+            "priority": 4,
+            "text": "Periodic vulnerability assessments and penetration tests are conducted to identify attack methods and vulnerabilities that can be used to successfully infiltrate the system."
+          },
+          {
+            "number": 9,
+            "priority": 4,
+            "text": "Restrictions on the use and bringing of external storage media (USB memory sticks, flash cards) and portal media into the plant."
+          },
+          {
+            "number": 10,
+            "priority": 3,
+            "text": "There are password rules for systems in the factory, including password strength and expiration dates. (Excluding terminals such as display units that require emergency response related to safety)."
+          },
+          {
+            "number": 11,
+            "priority": 3,
+            "text": "Old accounts (e.g., retirees, transferees, etc.) that are not in use with access rights to systems in the plant are deleted."
+          },
+          {
+            "number": 12,
+            "priority": 4,
+            "text": "For connected devices in the factory network, there is a procedure to verify in advance that they are not infected with viruses."
+          },
+          {
+            "number": 13,
+            "priority": 2,
+            "text": "Backups are made with the assumption of complete restoration of system functions, and tests of restoration from backup data are conducted periodically. In addition, the procedure is clarified."
+          }
+        ]
+      },
+      {
+        "category_id": 3,
+        "category_name": "technique",
+        "category_name_locale": "Technology",
+        "question": [
+          {
+            "number": 1,
+            "priority": 4,
+            "text": "Anti-virus software or application white lists are installed on terminals where anti-virus measures can be installed, and some alternative measures (e.g., USB-type anti-virus) are installed on terminals where installation is not possible."
+          },
+          {
+            "number": 2,
+            "priority": 4,
+            "text": "Security patches are applied to the application/operating system (OS). Or alternative measures are in place."
+          },
+          {
+            "number": 3,
+            "priority": 4,
+            "text": "Services and applications using the control terminal operating system are kept to the minimum necessary, and unused services and ports are stopped or disabled."
+          },
+          {
+            "number": 4,
+            "priority": 3,
+            "text": "Sufficient measures, such as level classification, are taken for physical access to important factory equipment. Or alternative operational measures are in place such as access control and escort of relevant personnel to outside visitors."
+          },
+          {
+            "number": 5,
+            "priority": 3,
+            "text": "Within the factory network, network segment management is conducted according to security level (e.g., VLANs)."
+          },
+          {
+            "number": 6,
+            "priority": 3,
+            "text": "Protective measures such as authentication (e.g., twofactor authentication) and network intrusion protection are taken when external Internet access is possible for the purpose of remote maintenance of factory systems, etc."
+          },
+          {
+            "number": 7,
+            "priority": 2,
+            "text": "A network detection/protection system is in place to identify suspicious communications on the factory network (including the boundary with the information system)."
+          },
+          {
+            "number": 8,
+            "priority": 2,
+            "text": "Event logs of logins, operation histories, etc. of the factory's internal systems are being collected. Those logs are periodically analyzed or stored for the required number of days."
+          }
+        ]
+      },
+      {
+        "category_id": 4,
+        "category_name": "supply_chain",
+        "category_name_locale": "Supply Chain Management for Factory Assets",
+        "question": [
+          {
+            "number": 1,
+            "priority": 2,
+            "text": "A liaison and coordination system has been established with control system vendors and construction companies to respond to security incidents in factory systems."
+          },
+          {
+            "number": 2,
+            "priority": 2,
+            "text": "Conducting security training for subcontractors involved in factory system maintenance, etc."
+          },
+          {
+            "number": 3,
+            "priority": 2,
+            "text": "A system for communication and coordination with control system vendors/builders is in place to ensure that information is shared promptly when security vulnerabilities related to delivered factory systems are discovered."
+          },
+          {
+            "number": 4,
+            "priority": 2,
+            "text": "Aware of threats to factory systems in the supply chain (subcontractors, production subsidiaries, etc.), the degree of impact, and the status of response (e.g., implementation of audits, etc.)."
+          },
+          {
+            "number": 5,
+            "priority": 2,
+            "text": "Has a process to determine whether the factory system equipment to be delivered meets certain security standards, and an acceptance inspection."
+          },
+          {
+            "number": 6,
+            "priority": 4,
+            "text": "Security requirements are clarified in the design specification requirements for new system implementation."
+          }
+        ]
+      }
+    ],
+    "extra": {
+      "category_id": 99,
+      "order": 1,
+      "text": " This is the end of the assessment. Please, describe the amendment or question if you have."
+    },
+    "answers": [
+      {
+        "number": 1,
+        "text": "Not applicable",
+        "constant_score": 0.5
+      },
+      {
+        "number": 2,
+        "text": "Not implemented",
+        "constant_score": 0.2
+      },
+      {
+        "number": 3,
+        "text": "Partially implemented",
+        "constant_score": 0.4
+      },
+      {
+        "number": 4,
+        "text": "Implemented",
+        "constant_score": 0.6
+      },
+      {
+        "number": 5,
+        "text": "Implemented, control procedures are documented and automated, and measures are periodically reviewed",
+        "constant_score": 0.8
+      },
+      {
+        "number": 6,
+        "text": "Implemented, control procedures are documented and automated, and reviewed as needed",
+        "constant_score": 0.9
+      }
+    ]
+  }
+]

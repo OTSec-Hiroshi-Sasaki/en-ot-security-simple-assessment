@@ -1,0 +1,41 @@
+@use '../Global/global' as *;
+
+.l-header {
+    position: relative;
+    @include pc {
+        padding: 62px 104px 24px 0;
+        border-bottom: 1px solid #D9E1E2;
+    }
+    @include sp {
+        padding: convertToVw(54) convertToVw(40) convertToVw(36) 0;
+        border-bottom: convertToVw(2) solid #D9E1E2;
+    }
+    &::before {
+        @include pseudoElement;
+        top: 0;
+        left: 0;
+        right: 0;
+        background-color: #000;
+        @include pc {
+            height: 36px;
+        }
+        @include sp {
+            height: convertToVw(16);
+        }
+    }
+    .l-header_title {
+        text-align: right;
+        font-weight: $fwBold;
+        @include pc {
+            @include setFontSize(13, 13);
+            > a {
+                @include isHoverDevice {
+                    opacity: 0.5;
+                }
+            }
+        }
+        @include sp {
+            @include setFontSizeSP(24, 24);
+        }
+    }
+}

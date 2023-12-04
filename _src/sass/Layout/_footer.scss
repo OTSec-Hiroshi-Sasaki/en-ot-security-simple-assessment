@@ -1,0 +1,22 @@
+@use '../Global/global' as *;
+
+.l-footer {
+    background-color: #E6E6E6;
+    @include pc {
+        padding-block: 16px;
+    }
+    @include sp {
+        padding-block: convertToVw(46);
+    }
+    .l-footer_copyright {
+        display: block;
+        text-align: center;
+        @include pc {
+            @include adjustTextMargin(14, 14);
+        }
+        @include sp {
+
+            @include adjustTextMarginSP(16, 16);
+        }
+    }
+}

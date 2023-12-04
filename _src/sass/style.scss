@@ -1,0 +1,32 @@
+@charset "utf-8";
+
+/**
+ * Foundation
+ */
+@use "./Foundation/reset";
+@use "./Foundation/base";
+@use "./Foundation/animations";
+@use "./Foundation/keyframes";
+
+/**
+ * Util
+ */
+@use "./Util/textColor";
+
+/**
+ * Components
+ */
+@use "./Components/modal";
+@use "./Components/btn";
+
+/**
+ * Layout
+ */
+@use "./Layout/header";
+@use "./Layout/footer";
+
+/**
+ * Pages
+ */
+@use "Project/diagnosis";
+@use "Project/result";

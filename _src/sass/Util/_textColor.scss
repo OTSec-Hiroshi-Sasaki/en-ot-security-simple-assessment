@@ -1,0 +1,18 @@
+@use '../Global/global' as *;
+.u-textColor {
+    &-primary {
+        color: $primary;
+    }
+    &-aRank {
+        color: #377CF6;
+    }
+    &-bRank {
+        color: #68B135;
+    }
+    &-cRank {
+        color: #FFC000;
+    }
+    &-dRank {
+        color: #F86A3E;
+    }
+}

@@ -1,0 +1,80 @@
+@use 'variables' as *;
+@use 'function' as *;
+@use "sass:math";
+
+// Apply styles limited to PC width.
+@mixin pc($break-point: $break-point) {
+    @media screen and (min-width: #{$break-point + 1}), print {
+        @content;
+    }
+}
+
+// Apply styles limited to SP width.
+@mixin sp($break-point: $break-point) {
+    @media screen and (max-width: #{$break-point}) {
+        @content;
+    }
+}
+
+// Set up the background image.
+@mixin backgroundFig($url) {
+    background: url("#{$imgPath}#{$url}") no-repeat 50% 50% / contain;
+}
+
+// Set up the pseudo-element (absolute positioning).
+@mixin pseudoElement {
+    content: '';
+    display: block;
+    position: absolute;
+}
+
+// Set the font-size and line-height using pixel (px) values.
+@mixin setFontSize($fz, $lh) {
+    font-size: #{$fz}px;
+    line-height: math.div($lh, $fz);
+}
+
+// Set the font-size and line-height using viewport width (vw) values.
+@mixin setFontSizeSP($fz, $lh) {
+    font-size: convertToVw($fz);
+    line-height: math.div($lh, $fz);
+}
+
+// Set the font-size and line-height using pixel (px) values and adjust the top and bottom margins.
+@mixin adjustTextMargin($fs,$lh,$offset: 0) {
+    margin-top: ($offset - (getHalfReading($fs,$lh)) * 1px);
+    margin-bottom: (0 - (getHalfReading($fs,$lh)) * 1px);
+    font-size: $fs * 1px;
+    line-height: math.div($lh, $fs);
+}
+
+// Set the font-size and line-height using viewport width (vw) values and adjust the top and bottom margins.
+@mixin adjustTextMarginSP($fs,$lh,$offset: 0) {
+    margin-top: convertToVw($offset - (getHalfReading($fs,$lh)));
+    margin-bottom: convertToVw(0 - (getHalfReading($fs,$lh)));
+    font-size: convertToVw($fs);
+    line-height: math.div($lh, $fs);
+}
+
+
+// Apply hover styles only on devices that support a mouse pointer.
+@mixin isHoverDevice() {
+    @media (hover: hover) and (pointer: fine) {
+        backface-visibility: hidden;
+        &:hover {
+            @content;
+        }
+    }
+}
+
+
+// Set up an arrow icon in SVG format.
+@mixin svgArrow($color: fff) {
+    background: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='9.621' height='16.242'%3E%3Cpath d='m2.121 2.121 6 6-6 6' fill='none' stroke='%23#{$color}' stroke-linecap='round' stroke-linejoin='round' stroke-width='3'/%3E%3C/svg%3E") no-repeat top left / contain;
+}
+
+
+// Refer to a variable based on the value stored in the argument and remove the '#' character.
+@function re-color($code) {
+    @return str-slice("#{$code}", 2);
+}

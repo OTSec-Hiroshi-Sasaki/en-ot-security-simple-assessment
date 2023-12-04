@@ -1,0 +1,120 @@
+[
+  {
+    "evaluate_targets": {
+      "organization": {
+        "evaluation_category": "Pe",
+        "questions": [
+          {"id": 1, "question_number": 1},
+          {"id": 2, "question_number": 3}
+        ]
+      },
+      "operation": {
+        "evaluation_category": "Pr",
+        "questions": [
+          {"id": 1, "question_number": 1},
+          {"id": 2, "question_number": 6},
+          {"id": 3, "question_number": 9}
+        ]
+      },
+      "technique": {
+        "evaluation_category": "Te",
+        "questions": [
+          {"id": 1, "question_number": 1},
+          {"id": 2, "question_number": 7}
+        ]
+      },
+      "supply_chain": {
+        "evaluation_category": "Sp",
+        "questions": [
+          {"id": 1, "question_number": 1},
+          {"id": 2, "question_number": 4}
+        ]
+      }
+    },
+    "evaluate_texts": {
+      "a-1": "Well implemented measures for People, Process and Technology at a high level and in a balanced way. ",
+      "a-2": "While People and Process measures are sufficient, there are some issues with Technology measures. As People measures are sufficient, early improvement is expected. ",
+      "a-3": "While People and Technology measures are sufficient, there are some issues with Process measures. As People measures are sufficient, early improvement is expected. ",
+      "a-4": "While People measures are sufficient, there are some issues with Process and Technology measures. As People measures are sufficient, early improvement is expected. ",
+      "a-5": "Even though People measures are insufficient, Process and Technology measures are sufficient. It indicates some deviation with the real status. ",
+      "a-6": "Even though People and Technology measures are insufficient, Process measures are sufficient. It indicates some deviation with the real status. ",
+      "a-7": "Even though People and Process measures are insufficient, Technology measures are sufficient. It indicates some deviation with the real status. ",
+      "a-8": "People, Process and Technology measures are all inadequate and there are many issues. It is recommended to start with People measures at first. ",
+      "b-1": "Continuous risk reduction has been done for the breaches from known cybersecurity threats, reducing business impact to the factory in a cybersecurity incident.",
+      "b-2": "If it remains as it is, the risk of a breach from known cybersecurity threats is sufficiently low, but it is estimated the factory will have significant damage due to the unbalanced measures.",
+      "b-3": "Currently, the risk of a breach from known cybersecurity threats is sufficiently low, and damage to the factory in the event of a cybersecurity incident is also reduced.",
+      "b-4": "If it remains as it is, there is significant risk of cybersecurity breaches. It is estimated a known cybersecurity threat could cause significant damage to the factory.",
+      "b-5": "If it remains as it is, there is high risk of cybersecurity breaches. It is estimated a known cybersecurity threat could cause severe damage to the factory.",
+      "Pe1-0": "",
+      "Pe1-1": "Due to no understanding from executives, basic resources such as budget and human resources are not available. ",
+      "Pe1-2": "Due to insufficient understanding from executives, basic resources such as budget and human resources are not available. ",
+      "Pe1-3": "Due to sufficient understanding from executives, sufficient basic resources such as budget and personnel are available. ",
+      "Pe1-4": "Executive's understanding is consistently sufficient, and basic resources such as budget and personnel are continuously available. ",
+      "Pe1-5": "Executive's understanding is timely, and basic resources such as budget and personnel are obtained in a timely manner. ",
+      "Pe2-0": "",
+      "Pe2-1": "There is no governance system, and who is responsible for factory cybersecurity is unclear. ",
+      "Pe2-2": "There are issues with the governance system, and who is responsible for factory cybersecurity is vague. ",
+      "Pe2-3": "The governance system is sufficient and the responsibility for factory cybersecurity is clear. ",
+      "Pe2-4": "The governance system is continually improving, and the responsibility for factory cybersecurity is clear. ",
+      "Pe2-5": "The governance system responds to changes in the environment at any time, and the responsibility for factory cybersecurity is clear. ",
+      "PeT-0": "Overall, People measures are sufficient and risk reduction can be achieved enough on an ongoing basis.",
+      "PeT-1": "Overall, People measures are sufficient and provide appropriate risk reduction. Continuous improvement is the challenge.",
+      "PeT-2": "Overall, People measures are insufficient, measures are ad hoc, and risks have not been sufficiently reduced, and improvements are needed.",
+      "PeT-3": "Overall, People measures are insufficient, measures are ad hoc, and risks have not been sufficiently reduced, and urgent improvements are needed.",
+      "Pr1-0": "",
+      "Pr1-1": "No risk assessment causes a possibility that measures taken are inadequate. ",
+      "Pr1-2": "Insufficient risk assessment may result in over- or under-measures.  ",
+      "Pr1-3": "Risk assessments have been conducted and measures have led to risk reduction. ",
+      "Pr1-4": "Risk assessments are conducted regularly and measures are continually reviewed. ",
+      "Pr1-5": "Risk assessments are conducted in a timely manner, and measures can be reviewed flexibly. ",
+      "Pr2-0": "",
+      "Pr2-1": "No asset management causes a possibility that the measures taken are inadequate. ",
+      "Pr2-2": "Insufficient asset management may result in over- or under-measures. ",
+      "Pr2-3": "Asset management has been conducted and measures have led to risk reduction. ",
+      "Pr2-4": "Asset management is carried out continuously and can be utilized in response to cybersecurity incidents. ",
+      "Pr2-5": "Asset management is carried out in a timely manner and can be utilized in response to security incidents. ",
+      "Pr3-0": "",
+      "Pr3-1": "There are no restrictions on the use or bringing of external storage media into the factory, making it easy for external threats to infiltrate. ",
+      "Pr3-2": "There are insufficient restrictions on the use and bringing of external storage media into the factory, so there is a possibility that threats from outside can infiltrate. ",
+      "Pr3-3": "There are restrictions on the use and bringing of external storage media into the factory, and the possibility of threats entering through that route is low. ",
+      "Pr3-4": "There are restrictions on the use and bringing of external storage media into the factory, and the possibility of threats entering through that route is low. ",
+      "Pr3-5": "There are restrictions on the use and bringing of external storage media into the factory, and the possibility of threats entering through that route is low. ",
+      "PrT-0": "Overall, Process measures are sufficient and risk reduction can be achieved enough on an ongoing basis.",
+      "PrT-1": "Overall, Process measures are sufficient and provide appropriate risk reduction. Continuous improvement is the challenge.",
+      "PrT-2": "Overall, Process measures are insufficient and do not lead to appropriate risk reduction, so improvements are necessary.",
+      "PrT-3": "Overall, Process measures are insufficient and do not lead to appropriate risk reduction, so urgent improvements are required.",
+      "Te1-0": "",
+      "Te1-1": "Since the device is not protected, there is a high risk of malware infection. ",
+      "Te1-2": "There is a risk of malware infection due to insufficient protection of the device. ",
+      "Te1-3": "The risk of malware infection is reduced because the device is sufficiently protected. ",
+      "Te1-4": "Device protection is continuously implemented, and the risk of malware infection is sufficiently reduced. ",
+      "Te1-5": "Device protection is implemented in a timely manner, and the risk of malware infection is sufficiently reduced. ",
+      "Te2-0": "",
+      "Te2-1": "Threats can easily infiltrate because the factory network is not protected or detected. ",
+      "Te2-2": "Threats may infiltrate with a high probability because the factory network is not protected or detected enough. ",
+      "Te2-3": "Threat protection and detection of the network within the factory is sufficient, reducing the risk of threat intrusion. ",
+      "Te2-4": "Threat protection and detection of the network within the factory is carried out continuously, and the risk of threat intrusion is sufficiently reduced. ",
+      "Te2-5": "Threat protection and detection of the network within the factory is implemented in a timely manner, and the risk of threat intrusion is sufficiently reduced. ",
+      "TeT-0": "Overall, Technology measures are sufficient and risk reduction can be achieved enough on an ongoing basis.",
+      "TeT-1": "Overall, Technology measures are sufficient and provide appropriate risk reduction. Continuous improvement is the challenge.",
+      "TeT-2": "Overall, Technology measures are insufficient and do not lead to appropriate risk reduction, so improvements are necessary.",
+      "TeT-3": "Overall, Technology measures are insufficient and do not lead to appropriate risk reduction, so urgent improvements are required.",
+      "Sp1-0": "",
+      "Sp1-1": "There is no communication readiness for a cybersecurity incident with industrial control system vendors or system integrators, which increases the damage. ",
+      "Sp1-2": "Due to an insufficient communication readiness with industrial control system vendors and system integrators in a cybersecurity incident, there is a risk that damage may increase. ",
+      "Sp1-3": "Having a sufficient communication readiness with industrial control system vendors and system integrators in a cybersecurity incident can reduce the risk of damage getting worse. ",
+      "Sp1-4": "The communication readiness in a cybersecurity incident with industrial control system vendors and system integrators is continuously reviewed, and the risk of damage getting worse can be sufficiently reduced. ",
+      "Sp1-5": "The communication readiness in a cybersecurity incident with industrial control system vendors and system integrators is reviewed in a timely manner, and the risk of damage getting worse can be sufficiently reduced. ",
+      "Sp2-0": "",
+      "Sp2-1": "Due to no supply chain cybersecurity management, the risk of cybersecurity incidents occurring at suppliers cannot be ascertained. ",
+      "Sp2-2": "Due to insufficient supply chain cybersecurity management, the risk of cybersecurity incidents occurring at suppliers is not fully understood. ",
+      "Sp2-3": "Supply chain cybersecurity management is sufficient, and risks of cybersecurity incidents at suppliers are understood. ",
+      "Sp2-4": "Supply chain cybersecurity management is carried out continuously, and the risk of cybersecurity incidents occurring at suppliers is continuously understood. ",
+      "Sp2-5": "Supply chain cybersecurity management is implemented in a timely manner, and the risk of cybersecurity incidents occurring at suppliers can be ascertained in a timely manner. ",
+      "SpT-0": "Overall, Supply chain management for factory assets is sufficient and risk reduction can be achieved enough on an ongoing basis.",
+      "SpT-1": "Overall, Supply chain management for factory assets is sufficient and provide appropriate risk reduction. Continuous improvement is the challenge.",
+      "SpT-2": "Overall, Supply chain management for factory assets is insufficient and do not lead to appropriate risk reduction, so improvements are necessary.",
+      "SpT-3": "Overall, Supply chain management for factory assets is insufficient and do not lead to appropriate risk reduction, so urgent improvements are required."
+    }
+  }
+]

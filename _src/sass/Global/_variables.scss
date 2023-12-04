@@ -1,0 +1,27 @@
+// breakpoint
+$break-point: 767px;
+
+// Variables
+$imgPath: '../images/';
+
+// Colors
+$primary: #0965B4;
+
+// sizes
+$contentWidthPc: 960px;
+$minAreaPC: 1120px;
+$outerAreaSP: 750;
+$contentsWidthSP: 686;
+
+// Typography
+$fwBold: 700;
+
+// easing
+// Default
+$ease: cubic-bezier(0.250, 0.100, 0.250, 1.000);
+// In
+$easeInQuad: cubic-bezier(0.550, 0.085, 0.680, 0.530);
+// Out
+$easeOutQuad: cubic-bezier(0.250, 0.460, 0.450, 0.940);
+// In Out
+$easeInOutQuad: cubic-bezier(0.455, 0.030, 0.515, 0.955);

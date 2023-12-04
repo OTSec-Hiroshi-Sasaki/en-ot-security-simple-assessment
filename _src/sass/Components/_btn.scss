@@ -1,0 +1,24 @@
+@use '../Global/global' as *;
+.c-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: $fwBold;
+    color: #fff;
+    background-color: $primary;
+    @include pc {
+        min-width: 275px;
+        border-radius: 60px;
+        padding: 20px - getHalfReading(24, 43.2) 54px;
+        @include setFontSize(24, 43.2);
+        @include isHoverDevice {
+            background-color: #000;
+        }
+    }
+    @include sp {
+        min-width: convertToVw(360);
+        padding: convertToVw(32 - getHalfReading(34, 72)) convertToVw(60);
+        @include setFontSizeSP(34, 72);
+        border-radius: convertToVw(80);
+    }
+}

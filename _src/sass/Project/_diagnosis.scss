@@ -1,0 +1,632 @@
+@use '../Global/global' as *;
+
+#pageDiagnosis {
+    .startModal {
+        &.isHide {
+            display: none;
+        }
+        .startModal_inner {
+            margin: auto;
+            @include pc {
+                max-width: 1128px;
+            }
+            @include sp {
+                width: convertToVw(686);
+                padding: convertToVw(120) 0;
+            }
+        }
+        .startModal_box {
+            background-color: #fff;
+        }
+        .startModal_boxHead {
+            font-weight: 400;
+            color: #fff;
+            background-color: $primary;
+            @include pc {
+                padding: 13px - getHalfReading(13, 28);
+                text-align: center;
+                @include setFontSize(13, 28);
+            }
+            @include sp {
+                padding: convertToVw(24 - getHalfReading(20, 26)) convertToVw(22);
+                @include setFontSizeSP(20, 26);
+            }
+        }
+        .startModal_boxBody {
+            @include pc {
+                display: grid;
+                grid-template-columns: 1fr min(405px, convertToVw(405, 1366));
+                column-gap: min(44px, convertToVw(44, 1366));
+                padding: 40px min(70px, convertToVw(70, 1366)) 0 min(85px, convertToVw(85, 1366));
+            }
+            @include sp {
+                padding: convertToVw(104) convertToVw(40) 0;
+            }
+        }
+        .startModal_textArea {
+            @include pc {
+                place-self: center start;
+            }
+        }
+        .startModal_titleWrap {
+            display: flex;
+            flex-direction: column-reverse;
+        }
+        .startModal_copy {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(19, 23.2, 40);
+            }
+            @include sp {
+                @include adjustTextMarginSP(30, 40);
+            }
+        }
+        .startModal_title {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(30, 64, 24);
+            }
+            @include sp {
+                @include adjustTextMarginSP(50, 52, 24);
+            }
+        }
+        .startModal_startBtn {
+            display: block;
+            font-weight: $fwBold;
+            color: #fff;
+            background-color: $primary;
+            overflow: hidden;
+            @include pc {
+                width: 100%;
+                max-width: 490px;
+                height: 72px;
+                margin-top: 40px;
+                border-radius: 60px;
+                @include setFontSize(28, 28);
+                @include isHoverDevice {
+                    background-color: #000;
+                }
+            }
+            @include sp {
+                width: convertToVw(490);
+                height: convertToVw(96);
+                border-radius: convertToVw(60);
+                margin: convertToVw(80) auto 0;
+                @include setFontSizeSP(32, 57.6);
+            }
+            > span {
+                position: relative;
+                display: grid;
+                place-items: center;
+                &::before {
+                    @include pseudoElement;
+                    @include svgArrow;
+                    @include pc {
+                        top: 50%;
+                        right: 46px;
+                        width: 9px;
+                        height: 15px;
+                        margin-top: -7.5px;
+                    }
+                    @include sp {
+                        top: 50%;
+                        right: convertToVw(46);
+                        width: convertToVw(12);
+                        height: convertToVw(20);
+                        margin-top: convertToVw(-10);
+                    }
+                }
+            }
+        }
+        .startModal_image {
+            overflow: hidden;
+            @include pc {
+                place-self: end start;
+            }
+            @include sp {
+                width: convertToVw(565);
+                height: convertToVw(488);
+                margin: convertToVw(80) 0 0 convertToVw(40);
+            }
+        }
+
+    }
+    .diagnosis {
+        @include pc {
+            padding: 56px 0 80px;
+        }
+        @include sp {
+            padding: convertToVw(56) 0 convertToVw(120);
+        }
+        .indicator {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            margin: auto;
+            @include pc {
+                gap: 72px;
+                width: 300px;
+                padding-top: 26px;
+            }
+            @include sp {
+                gap: convertToVw(60);
+                width: convertToVw(339);
+                padding-top: convertToVw(56);
+            }
+            .indicator_item {
+                position: relative;
+                &:nth-of-type(n + 2) {
+                    &::before {
+                        @include pseudoElement;
+                        top: 50%;
+                        right: 100%;
+                        background-color: #f0f0f0;
+                        @include pc {
+                            width: 56px;
+                            height: 2px;
+                            transform: translate(-8px, -50%);
+                        }
+                        @include sp {
+                            width: convertToVw(44);
+                            height: convertToVw(4);
+                            transform: translate(convertToVw(-8), -50%);
+                        }
+                    }
+                }
+                &.isActive {
+                    &::before {
+                        background-color: $primary;
+                    }
+                    .indicator_itemCircle {
+                        background-color: $primary;
+                    }
+                }
+                &.isCurrent {
+                    .indicator_itemText {
+                        color: $primary;
+                    }
+                    .indicator_itemCircle {
+                        &::before {
+                            @include pseudoElement;
+                            border-radius: 50%;
+                            background-color: #fff;
+                            top: 50%;
+                            left: 50%;
+                            transform: translate(-50%, -50%);
+                            @include pc {
+                                width: 8px;
+                                height: 8px;
+                            }
+                            @include sp {
+                                width: convertToVw(16);
+                                height: convertToVw(16);
+                            }
+                        }
+                    }
+                }
+            }
+            .indicator_itemText {
+                position: absolute;
+                left: 50%;
+                bottom: 100%;
+                text-align: center;
+                @include pc {
+                    transform: translate(-50%, -12px);
+                    @include setFontSize(13, 13);
+                }
+                @include sp {
+                    transform: translate(-50%, convertToVw(-8));
+                    @include setFontSizeSP(22, 26);
+                }
+                > span {
+                    @include sp {
+                        display: block;
+                    }
+                }
+            }
+            .indicator_itemCircle {
+                position: relative;
+                border-radius: 50%;
+                background-color: #f0f0f0;
+                @include pc {
+                    width: 20px;
+                    height: 20px;
+                }
+                @include sp {
+                    width: convertToVw(40);
+                    height: convertToVw(40);
+                }
+            }
+        }
+        .diagnosis_area {
+            position: relative;
+        }
+        .diagnosis_head {
+            margin: auto;
+            @include pc {
+                max-width: 960px;
+                padding-top: 64px;
+            }
+            @include sp {
+                max-width: convertToVw(686);
+                padding-top: convertToVw(80);
+            }
+        }
+        .diagnosis_headWrap {
+            display: flex;
+        }
+        .diagnosis_headIcon {
+            flex-shrink: 0;
+            @include pc {
+                width: 72px;
+                height: 72px;
+            }
+            @include sp {
+                width: convertToVw(120);
+                height: convertToVw(120);
+            }
+        }
+        .diagnosis_headTitles {
+            @include pc {
+                margin-left: 16px;
+            }
+            @include sp {
+                margin-left: convertToVw(24);
+            }
+        }
+        .diagnosis_headNumber {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(20, 36);
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6);
+            }
+        }
+        .diagnosis_headTitle {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(32, 57.6, 10);
+            }
+            @include sp {
+                @include adjustTextMarginSP(40, 60, 20)
+            }
+        }
+        .diagnosis_headMsgWrap {
+            @include pc {
+                padding: 24px 0 0 88px;
+            }
+            @include sp {
+                padding-top: convertToVw(80);
+            }
+        }
+        .diagnosis_headMsg {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(18, 32.4);
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6);
+            }
+        }
+        .diagnosis_headNote {
+            @include pc {
+                @include adjustTextMargin(14, 25.2, 16);
+            }
+            @include sp {
+                @include adjustTextMarginSP(28, 50.4, 40);
+            }
+        }
+        .questions {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            @include pc {
+                gap: 2px;
+                max-width: 960px;
+                margin: auto;
+                padding-top: 40px;
+            }
+            @include sp {
+                gap: convertToVw(4);
+                padding-top: convertToVw(40);
+            }
+        }
+        .questions_box {
+            @include pc {
+                padding: 48px 0;
+            }
+            @include sp {
+                padding: convertToVw(56);
+            }
+            &:nth-of-type(odd) {
+                background-color: #F0F0F0;
+            }
+            &:nth-of-type(even) {
+                background-color: #F7F7F7;
+            }
+            &.isError {
+                background-color: #E7F6FB;
+                .questionErrorMsg {
+                    display: block;
+                }
+            }
+            &.questions_box-extra {
+                .comment {
+                    padding: 0;
+                }
+                .comment_textarea {
+                    > textarea {
+                        resize: vertical;
+                        @include pc {
+                            min-height: 200px;
+                            padding: 16px - getHalfReading(16, 28.8) 24px;
+                            @include setFontSize(16, 28.8);
+                        }
+                        @include sp {
+                            padding: convertToVw(24 - getHalfReading(26, 46.8)) convertToVw(24);
+                            min-height: convertToVw(300);
+                            @include setFontSizeSP(26, 46.8)
+                        }
+                    }
+                }
+            }
+        }
+        .questions_boxHead {
+            @include pc {
+                display: flex;
+                padding: 0 88px 0 38px;
+            }
+        }
+        .questionNumber {
+            font-weight: $fwBold;
+            color: $primary;
+            @include pc {
+                @include setFontSize(24, 24);
+                margin-right: 12px;
+            }
+            @include sp {
+                margin-bottom: convertToVw(32);
+                @include setFontSizeSP(40, 40);
+            }
+        }
+        .questionText {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(18, 32.4);
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6);
+            }
+        }
+        .questionErrorMsg {
+            display: none;
+            font-weight: $fwBold;
+            color: $primary;
+            @include pc {
+                @include adjustTextMargin(18, 32.4, 32);
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6, 60);
+            }
+        }
+        .questions_boxBody {
+            @include pc {
+                padding: 32px 88px 0;
+            }
+            @include sp {
+                padding-top: convertToVw(64);
+            }
+        }
+        .answers {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            @include pc {
+                gap: 10px;
+            }
+            @include sp {
+                gap: convertToVw(16);
+            }
+        }
+        .answers_item {
+            &.isSelected {
+                label {
+                    color: #fff;
+                    background-color: $primary;
+                }
+            }
+            label {
+                display: flex;
+                align-items: center;
+                background-color: #fff;
+                transition: background-color 0.2s $ease, color 0.2s $ease;
+                @include pc {
+                    padding: 12px 20px;
+                    border-radius: 6px;
+                    border: 1px solid #B5B5B5;
+                    @include setFontSize(18, 28.8);
+                    @include isHoverDevice {
+                        border-color: $primary;
+                    }
+                }
+                @include sp {
+                    padding: convertToVw(16) convertToVw(24);
+                    border-radius: convertToVw(6);
+                    border: convertToVw(6) solid #B5B5B5;
+                    @include setFontSizeSP(28, 50.4);
+                }
+            }
+            input[type="radio"] {
+                position: relative;
+                flex: none;
+                border-radius: 50%;
+                appearance: none;
+                outline: none;
+                background-color: #fff;
+                transition: background-color 0.2s $ease;
+                @include pc {
+                    width: 19px;
+                    height: 19px;
+                    margin-right: 12px;
+                    border: 4px solid #fff;
+                    box-shadow: 0 0 0 1px #B5B5B5;
+                }
+                @include sp {
+                    width: convertToVw(36);
+                    height: convertToVw(36);
+                    margin-right: convertToVw(16);
+                    border: convertToVw(8) solid #fff;
+                    box-shadow: 0 0 0 convertToVw(4) #B5B5B5;
+                }
+                &:checked {
+                    background-color: $primary;
+                }
+            }
+        }
+        .comment {
+            @include pc {
+                padding-top: 32px;
+            }
+            @include sp {
+                padding-top: convertToVw(48);
+            }
+        }
+        .comment_head {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(16, 22);
+            }
+            @include sp {
+                @include adjustTextMarginSP(28, 50.4);
+            }
+        }
+        .comment_textarea {
+            @include pc {
+                margin-top: 8px;
+            }
+            @include sp {
+                margin-top: convertToVw(24);
+            }
+            > textarea {
+                width: 100%;
+                background-color: #fff;
+                resize: vertical;
+                @include pc {
+                    min-height: 104px;
+                    padding: 16px - getHalfReading(16, 28.8) 24px;
+                    @include setFontSize(16, 28.8);
+                }
+                @include sp {
+                    padding: convertToVw(24 - getHalfReading(26, 46.8)) convertToVw(24);
+                    min-height: convertToVw(176);
+                    @include setFontSizeSP(26, 46.8)
+                }
+            }
+        }
+        .diagnosis_btn {
+            @include pc {
+                margin: 64px auto 0;
+            }
+            @include sp {
+                margin: convertToVw(80) auto 0;
+            }
+        }
+        .diagnosis_alertModalInner {
+            display: grid;
+            place-items: center;
+            width: 100%;
+            height: 100%;
+        }
+        .diagnosis_alertModalBox {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background-color: #fff;
+            @include pc {
+                padding: 52px;
+                box-shadow: 0 0 0 8px $primary inset;
+            }
+            @include sp {
+                padding: convertToVw(60) convertToVw(52);
+                box-shadow: 0 0 0 convertToVw(12) $primary inset;
+            }
+        }
+        .diagnosis_alertModalMsg {
+            text-align: center;
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(18, 32.4);
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6);
+            }
+        }
+        .diagnosis_alertModalBtn {
+            @include pc {
+                margin: 32px auto 0;
+            }
+            @include sp {
+                margin: convertToVw(40) auto 0;
+            }
+        }
+
+    }
+    .loading {
+        //display: none;
+        z-index: 100;
+        font-weight: $fwBold;
+        background-color: #fff;
+        @include pc {
+            height: calc(100vh - 220px);
+            min-height: 500px;
+        }
+        @include sp {
+            height: calc(100vh - #{convertToVw(464)});
+            min-height: convertToVw(500);
+        }
+        .loading_inner {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: auto;
+            @include pc {
+                max-width: 960px;
+            }
+            @include sp {
+                max-width: convertToVw(686);
+            }
+        }
+        .loading_wrap {
+            &.isInvisible {
+                display: none;
+            }
+        }
+        .loading_title {
+            text-align: center;
+            @include pc {
+                @include adjustTextMargin(32, 57.6)
+            }
+            @include sp {
+                @include adjustTextMarginSP(32, 57.6)
+            }
+        }
+        .loading_bar {
+            background-color: #F0F0F0;
+            @include pc {
+                width: 400px;
+                height: 8px;
+                margin: 32px auto 0;
+            }
+            @include sp {
+                width: convertToVw(400);
+                height: convertToVw(8);
+                margin: convertToVw(32) auto 0;
+            }
+            .loading_progress {
+                width: 0%;
+                height: 100%;
+                background-color: $primary;
+            }
+        }
+    }
+}

@@ -1,0 +1,813 @@
+@use '../Global/global' as *;
+
+#pageDiagnosis,
+#pageResult {
+    .result {
+        @include pc {
+            background: linear-gradient(180deg, $primary 0% 320px,#fff 320px 100%);
+        }
+        @include sp {
+            background: linear-gradient(180deg, $primary 0% convertToVw(515),#fff convertToVw(515) 100%);
+        }
+        .result_head {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            margin-inline: auto;
+            @include pc {
+                row-gap: 53px;
+                padding-block: 14px 10px;
+            }
+            @include sp {
+                width: convertToVw($contentsWidthSP);
+                row-gap: convertToVw(40);
+                padding-block: convertToVw(26) convertToVw(40);
+            }
+            .result_headMsg {
+                color: #fff;
+                place-self: start center;
+                @include pc {
+                    @include adjustTextMargin(14, 25.2);
+                }
+                @include sp {
+                    @include setFontSizeSP(20, 32);
+                }
+            }
+            .result_headBtn {
+                display: block;
+                place-self: start end;
+                width: fit-content;
+                font-weight: $fwBold;
+                color: $primary;
+                background-color: #fff;
+                @include pc {
+                    margin-right: max(calc((100vw - $contentWidthPc) / 2), 80px);
+                    padding: 14px 48px 14px 32px;
+                    border-radius: 60px;
+                    @include isHoverDevice {
+                        color: #fff;
+                        background-color: #000;
+                        > span::before {
+                            @include svgArrow;
+                        }
+                    }
+                }
+                @include sp {
+                    padding: convertToVw(16) convertToVw(56) convertToVw(16) convertToVw(32);
+                    border-radius: convertToVw(80);
+                }
+                > span {
+                    position: relative;
+                    display: block;
+                    @include pc {
+                        @include adjustTextMargin(20, 28);
+                    }
+                    @include sp {
+                        @include adjustTextMarginSP(26, 28);
+                    }
+                    &::before {
+                        @include pseudoElement;
+                        top: 50%;
+                        left: 100%;
+                        @include svgArrow(re-color($primary));
+                        @include pc {
+                            width: 9px;
+                            height: 15px;
+                            transform: translate(18px, -50%);
+                        }
+                        @include sp {
+                            width: convertToVw(8);
+                            height: convertToVw(16);
+                            transform: translate(convertToVw(16), -50%);
+                        }
+                    }
+                }
+            }
+        }
+        .result_details {
+            position: relative;
+            z-index: 1;
+            @include pc {
+                padding-bottom: 80px;
+            }
+            @include sp {
+                padding-bottom: convertToVw(120);
+            }
+        }
+        .result_detailsInner {
+            margin: auto;
+            @include pc {
+                width: $contentWidthPc;
+            }
+            @include sp {
+                width: convertToVw($contentsWidthSP);
+            }
+        }
+        .result_title {
+            background-color: #fff;
+            font-weight: $fwBold;
+            @include pc {
+                width: 50%;
+                padding: 24px 48px 0;
+                @include setFontSize(32, 32);
+                border: 1px solid #CCCCCC;
+                border-bottom: unset;
+            }
+            @include sp {
+                width: convertToVw(493);
+                padding: convertToVw(24) convertToVw(32) convertToVw(16);
+                @include setFontSizeSP(40, 40);
+                border: convertToVw(2) solid #CCCCCC;
+                border-bottom: unset;
+            }
+        }
+        .result_wrap {
+            background-color: #fff;
+            @include pc {
+                padding: 0 48px 40px;
+                border: 1px solid #CCCCCC;
+                border-top: unset;
+            }
+            @include sp {
+                padding: 0 convertToVw(24) convertToVw(64);
+                border: convertToVw(2) solid #CCCCCC;
+                border-top: unset;
+            }
+        }
+        .result_lead {
+            @include pc {
+                padding-top: 40px - getHalfReading(16, 28.8);
+                @include setFontSize(16, 28.8);
+            }
+            @include sp {
+                padding-top: convertToVw(52 - getHalfReading(28, 50.4));
+                @include setFontSizeSP(28, 50.4);
+            }
+        }
+        .result_scoresContainer {
+            display: grid;
+            @include pc {
+                margin-top: 32px;
+            }
+            @include sp {
+                margin-top: convertToVw(40);
+            }
+            &:nth-of-type(1) {
+                grid-template-columns: repeat(1,1fr);
+            }
+            &:nth-of-type(2) {
+                @include pc {
+                    grid-template-columns: repeat(2, 416px);
+                    gap: 32px;
+                }
+                @include sp {
+                    gap: convertToVw(40);
+                }
+            }
+        }
+        .result_scoresBox {
+            @include pc {
+                border: 1px solid #CCCCCC;
+            }
+            @include sp {
+                border: convertToVw(2) solid #CCCCCC;
+            }
+        }
+        .result_scoresHead {
+            font-weight: $fwBold;
+            background-color: #f0f0f0;
+            @include pc {
+                padding: 10px - getHalfReading(20, 28) 32px;
+                @include setFontSize(20, 28);
+            }
+            @include sp {
+                padding: convertToVw(16 - getHalfReading(32, 46)) convertToVw(32);
+                @include setFontSizeSP(32, 46);
+            }
+            &.result_scoresHead-large {
+                @include pc {
+                    display: flex;
+                    align-items: center;
+                    height: 70px;
+                }
+            }
+        }
+        .result_scoresBody {
+            @include pc {
+                display: flex;
+            }
+        }
+        .result_scoresGraphWrap {
+            display: flex;
+            justify-content: center;
+            flex-shrink: 0;
+            @include pc {
+                width: 448px;
+                min-height: 480px;
+                border-right: 1px solid #CCC;
+                border-top: 1px solid #CCC;
+                @include backgroundFig('result/chart_bg.png');
+            }
+            @include sp {
+                width: 100%;
+                height: convertToVw(634);
+                border-top: convertToVw(2) solid #CCC;
+                @include backgroundFig('result/chart_bg_sp.png');
+            }
+        }
+        .result_scoresGraph {
+            display: block;
+            @include pc {
+                max-width: 320px;
+            }
+            @include sp {
+                max-width: convertToVw(430);
+            }
+        }
+        .result_scoresWrap {
+            display: flex;
+        }
+        .result_scoresColumn {
+            display: flex;
+            align-items: center;
+            font-weight: $fwBold;
+            @include pc {
+                border-top: 1px solid #CCCCCC;
+            }
+            @include sp {
+                width: 50%;
+                border-top: convertToVw(2) solid #CCCCCC;
+            }
+            &.result_scoresColumn-percent {
+                flex: 1;
+                @include pc {
+                    border-left: 1px solid #CCCCCC;
+                }
+                @include sp {
+                    border-left: convertToVw(2) solid #CCCCCC;
+                }
+                > dt {
+                    @include sp {
+                        @include adjustTextMarginSP(24, 28);
+                    }
+                }
+                > dd {
+                    vertical-align: bottom;
+                }
+            }
+            @at-root #pageDiagnosis,#pageResult .result .result_scoresContainer {
+                &:nth-of-type(1) {
+                    .result_scoresColumn {
+                        flex-direction: column;
+                        justify-content: center;
+                        @include pc {
+                            height: 158px;
+                        }
+                        @include sp {
+                            padding: convertToVw(24) 0;
+                        }
+                        > dt {
+                            @include pc {
+                                @include adjustTextMargin(16, 16);
+                            }
+                        }
+                        &.result_scoresColumn-evaluation {
+                            @include pc {
+                                width: 187px;
+                            }
+                            dd {
+                                @include pc {
+                                    margin-top: 14px;
+                                    @include setFontSize(80, 80);
+                                }
+                                @include sp {
+                                    margin-top: convertToVw(14);
+                                    @include setFontSizeSP(104, 104);
+                                }
+                            }
+                        }
+                        &.result_scoresColumn-percent {
+                            > dd {
+                                @include pc {
+                                    margin-top: 26px;
+                                    @include setFontSize(32, 32);
+                                }
+                                @include sp {
+                                    margin-top: convertToVw(32);
+                                    @include setFontSizeSP(40, 40);
+                                }
+                                span {
+                                    @include pc {
+                                        margin-right: 9px;
+                                        @include setFontSize(56, 56);
+                                    }
+                                    @include sp {
+                                        margin-right: convertToVw(4);
+                                        @include setFontSizeSP(72, 72);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+                &:nth-of-type(2) {
+                    .result_scoresColumn {
+                        @include pc {
+                            justify-content: space-between;
+                            height: 60px;
+                            padding-inline: 32px;
+                        }
+                        @include sp {
+                            column-gap: convertToVw(32);
+                            height: convertToVw(112);
+                            padding-left: convertToVw(32);
+                        }
+                        > dt {
+                            @include pc {
+                                @include adjustTextMargin(14, 18);
+                            }
+                        }
+                        &.result_scoresColumn-evaluation {
+                            @include pc {
+                                width: 202px;
+                            }
+                            dd {
+                                @include pc {
+                                    @include setFontSize(38, 38);
+                                }
+                                @include sp {
+                                    @include setFontSizeSP(64, 64);
+                                }
+                            }
+                        }
+                        &.result_scoresColumn-percent {
+                            > dd {
+                                @include pc {
+                                    @include setFontSize(24, 24);
+                                }
+                                @include sp {
+                                    @include setFontSizeSP(24, 24);
+                                }
+                                span {
+                                    @include pc {
+                                        margin-right: 4px;
+                                        @include setFontSize(32, 32);
+                                    }
+                                    @include sp {
+                                        margin-right: convertToVw(2);
+                                        @include setFontSizeSP(48, 48);
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        }
+        .result_scoresDesc {
+            @include pc {
+                padding: 32px - getHalfReading(16, 28.8) 32px;
+                border-top: 1px solid #CCCCCC;
+                @include setFontSize(16, 28.8);
+            }
+            @include sp {
+                padding: convertToVw(32 - getHalfReading(28, 44.8)) convertToVw(32);
+                border-top:  convertToVw(2) solid #CCCCCC;
+                @include setFontSizeSP(28, 44.8);
+            }
+        }
+        .result_guide {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            @include pc {
+                padding: 32px;
+                margin-top: 48px;
+                border: 1px solid #CCC;
+            }
+            @include sp {
+                padding: convertToVw(28);
+                margin-top: convertToVw(80);
+                border: convertToVw(2) solid #CCC;
+            }
+        }
+        .result_guideLink {
+            position: relative;
+            color: $primary;
+            text-decoration: underline;
+            @include pc {
+                @include adjustTextMargin(18, 28.8);
+                @include isHoverDevice {
+                    text-decoration: none;
+                }
+            }
+            @include sp {
+                @include adjustTextMarginSP(28, 44.8);
+            }
+        }
+        .result_guideIcon {
+            display: inline-block;
+            margin-left: 0.25em;
+            > img {
+                @include pc {
+                    width: 14px;
+                    height: 14px;
+                }
+                @include sp {
+                    width: convertToVw(28);
+                    height: convertToVw(28);
+                }
+            }
+        }
+        .result_guideNote {
+            @include pc {
+                @include adjustTextMargin(14, 25.2, 16);
+            }
+            @include sp {
+                @include adjustTextMarginSP(23, 43.2, 40);
+            }
+        }
+        .result_answers {
+            background-color: #f7f7f7;
+            @include pc {
+                padding: 64px 0;
+            }
+            @include sp {
+                padding: convertToVw(120) 0;
+            }
+        }
+        .result_answersInner {
+            margin: auto;
+            @include pc {
+                max-width: 960px;
+            }
+            @include sp {
+                max-width: convertToVw(686);
+            }
+        }
+        .result_answersTitle {
+            font-weight: $fwBold;
+            text-align: center;
+            @include pc {
+                @include adjustTextMargin(32, 57.6);
+            }
+            @include sp {
+                @include adjustTextMarginSP(48, 76.8);
+            }
+        }
+        .result_answersArea {
+            display: grid;
+            grid-template-columns: repeat(1, 1fr);
+            @include pc {
+                gap: 24px;
+                padding-top: 40px;
+            }
+            @include sp {
+                padding-top: convertToVw(48);
+                gap: convertToVw(32);
+            }
+        }
+        .result_answersBox {
+            transition: height 0.4s;
+            &[open] {
+                .result_answersBoxHead {
+                    background-color: $primary;
+                    &::before {
+                        rotate: -90deg;
+                    }
+                }
+            }
+        }
+        .result_answersBoxHead {
+            position: relative;
+            font-weight: $fwBold;
+            text-align: center;
+            color: #fff;
+            background-color: #000000;
+            @include pc {
+                padding: 20px 48px;
+                @include setFontSize(24, 24);
+                @include isHoverDevice {
+                    opacity: 0.7;
+                }
+            }
+            @include sp {
+                padding: convertToVw(40) convertToVw(32);
+                @include setFontSizeSP(32, 32);
+            }
+            &::before {
+                @include pseudoElement;
+                @include svgArrow;
+                top: 50%;
+                rotate: -270deg;
+                @include pc {
+                    right: 48px;
+                    width: 12px;
+                    height: 20px;
+                    margin-top: -10px;
+                }
+                @include sp {
+                    right: convertToVw(30);
+                    width: convertToVw(16);
+                    height: convertToVw(28);
+                    margin-top: convertToVw(-14);
+                }
+            }
+        }
+        .result_answersBoxBody {
+            table {
+                border-collapse: collapse;
+            }
+            th, td {
+                border: 1px solid #CCCCCC;
+            }
+            th {
+                white-space: nowrap;
+                font-weight: $fwBold;
+                text-align: center;
+                background-color: #e6e6e6;
+                @include pc {
+                    padding: 20px - getHalfReading(16, 28.8) 12px;
+                    @include setFontSize(16, 28.8);
+                }
+                @include sp {
+                    padding: convertToVw(18 - getHalfReading(20, 36)) convertToVw(12);
+                    @include setFontSizeSP(20, 36);
+                }
+                &:nth-of-type(1) {
+                    @include pc {
+                        width: 56px;
+                    }
+                    @include sp {
+                        width: convertToVw(64);
+                    }
+                }
+                &:nth-of-type(2) {
+                    @include pc {
+                        width: 423px;
+                    }
+                    @include sp {
+                        width: convertToVw(220);
+                    }
+                }
+                &:nth-of-type(3) {
+                    @include pc {
+                        width: 226px;
+                    }
+                    @include sp {
+                        width: convertToVw(220);
+                    }
+                }
+                &:nth-of-type(4) {
+                    @include pc {
+                        width: 258px;
+                    }
+                    @include sp {
+                        width: convertToVw(185);
+                    }
+                }
+            }
+            td {
+                word-break: break-word;
+                background-color: #fff;
+                @include pc {
+                    padding: 24px - getHalfReading(14, 25.2) 24px;
+                    @include setFontSize(14, 25.2)
+                }
+                @include sp {
+                    padding: convertToVw(24 - getHalfReading(24, 43.2)) convertToVw(24);
+                    @include setFontSizeSP(24, 43.2);
+                }
+                &:nth-of-type(1) {
+                    text-align: center;
+                    @include pc {
+                        vertical-align: middle;
+                        padding-left: 8px;
+                        padding-right: 8px;
+                    }
+                    @include sp {
+                        padding-left: convertToVw(8);
+                        padding-right: convertToVw(8);
+                    }
+                }
+            }
+        }
+        .result_answersCloseBtn {
+            position: relative;
+            width: 100%;
+            background-color: #bababa;
+            @include pc {
+                height: 64px;
+                @include isHoverDevice {
+                    opacity: 0.7;
+                }
+            }
+            @include sp {
+                height: convertToVw(110);
+            }
+            &:before {
+                @include pseudoElement;
+                top: 50%;
+                left: 50%;
+                @include svgArrow;
+                rotate: -90deg;
+                @include pc {
+                    width: 12px;
+                    height: 20px;
+                    margin: -10px 0 0 -6px;
+                }
+                @include sp {
+                    width: convertToVw(16);
+                    height: convertToVw(28);
+                    margin: convertToVw(-14) 0 0 convertToVw(-8);
+                }
+            }
+        }
+        .result_modal {
+            &.isShow {
+                display: block;
+                animation: fadeIn 0.4s forwards $ease;
+            }
+        }
+        .result_modalInner {
+            margin: auto;
+            @include pc {
+                width: 960px;
+            }
+            @include sp {
+                padding: convertToVw(80) 0;
+                width: convertToVw(686);
+            }
+        }
+        .result_modalBtn {
+            display: block;
+            margin-left: auto;
+            @include pc {
+                width: 32px;
+                height: 32px;
+                @include isHoverDevice {
+                    opacity: 0.5;
+                }
+            }
+            @include sp {
+                width: convertToVw(40);
+                height: convertToVw(40);
+            }
+        }
+        .result_modalBox {
+            width: 100%;
+            background-color: #fff;
+            @include pc {
+                margin-top: 8px;
+                padding: 40px;
+            }
+            @include sp {
+                margin-top: convertToVw(8);
+                padding: convertToVw(40) convertToVw(32);
+            }
+        }
+        .result_modalTitle {
+            font-weight: $fwBold;
+            @include pc {
+                @include adjustTextMargin(24, 43.2);
+            }
+            @include adjustTextMarginSP(32, 57.6);
+        }
+        .result_modalExplain {
+            display: flex;
+            @include pc {
+                margin-top: 24px;
+                border: 1px solid #CCCCCC;
+            }
+            @include sp {
+                flex-wrap: wrap;
+                margin-top: convertToVw(32);
+                border: convertToVw(2) solid #CCCCCC;
+            }
+        }
+        .result_modalExplainHead,
+        .result_modalExplainScore {
+            flex-shrink: 0;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            font-weight: $fwBold;
+            @include pc {
+                width: 96px;
+                padding: 28px - getHalfReading(16, 28.8) 0;
+                @include setFontSize(16, 28.8);
+            }
+            @include sp {
+                width: 50%;
+                padding: convertToVw(18 - getHalfReading(24, 50.4)) 0;
+                @include setFontSizeSP(24, 50.4);
+            }
+        }
+        .result_modalExplainHead {
+            color: #fff;
+            background-color: #000;
+        }
+        .result_modalExplainDesc {
+            @include pc {
+                padding: 16px - getHalfReading(14, 25.2) 24px;
+                @include setFontSize(14, 25.2);
+                border-left: 1px solid #CCC;
+            }
+            @include sp {
+                padding: convertToVw(24 - getHalfReading(22, 40)) convertToVw(24);
+                @include setFontSizeSP(22, 40);
+                border-top: convertToVw(2) solid #CCC;
+            }
+        }
+        .result_modalExample {
+            border: 1px solid #CCC;
+            border-collapse: collapse;
+            @include pc {
+                margin-top: 24px;
+            }
+            @include sp {
+                margin-top: convertToVw(56);
+            }
+            thead {
+                th {
+                    text-align: center;
+                    white-space: nowrap;
+                    font-weight: $fwBold;
+                    color: #fff;
+                    background-color: #000;
+                    @include pc {
+                        padding: 10px - getHalfReading(16, 28.8) 0;
+                        border: 1px solid #CCC;
+                        @include setFontSize(16, 28.8);
+                    }
+                    @include sp {
+                        padding: convertToVw(16 - getHalfReading(24, 57.6)) 0;
+                        border: convertToVw(2) solid #CCC;
+                        @include setFontSizeSP(24, 57.6);
+                    }
+                    &:nth-of-type(1) {
+                        @include sp {
+                            padding: convertToVw(7 - getHalfReading(22, 24)) 0;
+                            @include setFontSizeSP(22, 24);
+                        }
+                    }
+                }
+            }
+            tbody {
+                td {
+                    border: 1px solid #CCC;
+                    @include pc {
+                        min-height: 72px;
+                    }
+                    &:nth-of-type(1) {
+                        vertical-align: middle;
+                        text-align: center;
+                        @include pc {
+                            width: 166px;
+                            @include setFontSize(32, 32);
+                        }
+                        @include sp {
+                            width: convertToVw(150);
+                            @include setFontSizeSP(32, 57.6);
+                        }
+                    }
+                    &:nth-of-type(2) {
+                        vertical-align: middle;
+                        text-align: center;
+                        @include pc {
+                            width: 96px;
+                            @include setFontSize(16, 28.8);
+                        }
+                        @include sp {
+                            width: convertToVw(120);
+                            @include setFontSizeSP(24, 50.4);
+                        }
+                    }
+                    &:nth-of-type(3) {
+                        @include pc {
+                            padding: 16px - getHalfReading(14, 25.2) 24px;
+                            @include setFontSize(14, 25.2);
+                        }
+                        @include sp {
+                            padding: convertToVw(24 - getHalfReading(22, 40)) convertToVw(24);
+                            @include setFontSizeSP(22, 40);
+                        }
+                    }
+                }
+            }
+        }
+        .result_modalNote {
+            @include pc {
+                @include adjustTextMargin(13, 23.4, 24);
+            }
+            @include sp {
+                @include adjustTextMarginSP(24, 43.2, 56);
+            }
+            > span {
+                font-weight: $fwBold;
+            }
+        }
+        .result_modalExampleRank {
+            font-weight: $fwBold;
+        }
+    }
+}

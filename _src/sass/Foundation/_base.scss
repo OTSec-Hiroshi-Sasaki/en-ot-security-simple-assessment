@@ -1,0 +1,60 @@
+@use '../Global/global' as *;
+
+body {
+    font-family: 'ヒラギノ角ゴ ProN', 'Hiragino Kaku Gothic ProN', 'メイリオ', Meiryo, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif;
+    color: #000;
+    background-color: #fff;
+    @include pc {
+        min-width: $minAreaPC;
+    }
+}
+
+summary {
+    cursor: pointer;
+    list-style: none;
+    &::-webkit-details-marker {
+        display: none;
+    }
+}
+
+picture {
+    display: block;
+
+    img {
+        width: 100%;
+    }
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    width: 100%;
+    height: auto;
+    outline: 0;
+}
+
+label {
+    display: block;
+    width: 100%;
+}
+
+*::placeholder{
+    color:#CCCCCC;
+}
+
+.pc {
+    @include sp {
+        display: none;
+    }
+}
+
+.sp {
+    @include pc {
+        display: none;
+    }
+}
+
+
+.app {
+    position: relative;
+}

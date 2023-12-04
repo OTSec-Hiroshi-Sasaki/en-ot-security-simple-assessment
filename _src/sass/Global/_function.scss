@@ -1,0 +1,12 @@
+@use 'variables' as *;
+@use "sass:math";
+
+// Convert pixel values to vw (viewport width) units.
+@function convertToVw($pxNum, $viewport: 750) {
+    @return math.div($pxNum, $viewport) * 100vw;
+}
+
+// Return the half leading.
+@function getHalfReading($fz: $defaultFontSize, $lh: $defaultLineHeight) {
+    @return math.round(math.div(($lh - $fz), 2));
+}
